@@ -1,0 +1,31 @@
+<script type="text/javascript" language="javascript">
+    function checkform()
+    {
+        var f = document.forms["theform"].elements;
+        var cansubmit = true;
+
+        for (var ii = 0; ii < f.length; ii++) {
+            if (f[ii].value.length == 0) cansubmit = false;
+        }
+
+        document.getElementById('submitbutton').disabled = !cansubmit;
+    }
+
+    function resetText()
+    {
+        var tb = document.getElementsByTagName('input');
+        for(var ii=0; ii<tb.length;ii++)
+        {
+            if(tb[ii].type=='text')
+            {
+                tb[ii].value='';
+            }
+        }
+    }
+</script> 
+<form name="theform">
+<input type="text" onKeyup="checkform()" />
+<input type="text" onKeyup="checkform()" />
+<input id="submitbutton" type="submit" disabled="disabled" value="Submit" />
+<input type="submit" id="resetbtn" value="Reset" onclick="resetText()"/>
+</form>
